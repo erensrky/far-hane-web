@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Far Hane | Official Website</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Jura:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -15,60 +15,10 @@
         body {
             background-color: #050505; color: #fff;
             font-family: 'Jura', sans-serif; overflow-x: hidden;
-            scroll-behavior: smooth; /* Tıklayınca kayarak gitsin */
+            scroll-behavior: smooth;
         }
         
-        /* --- HIZLI SİYAH BEYAZ GİRİŞ --- */
-        #intro-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #000; z-index: 9999;
-            display: flex; justify-content: center; align-items: center;
-            flex-direction: column;
-            transition: opacity 0.8s ease-out;
-        }
-
-        .intro-logo-container { position: relative; text-align: center; }
-
-        .logo-text {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 5rem; font-weight: 900; letter-spacing: 8px;
-            text-transform: uppercase;
-            color: transparent; 
-            -webkit-text-stroke: 2px rgba(255, 255, 255, 0.6);
-            position: relative; display: inline-block; opacity: 0;
-            animation: textFillFast 1.2s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
-        }
-
-        .part-one { animation-delay: 0.1s; } 
-        .part-two { animation-delay: 0.3s; }
-
-        .loading-line {
-            width: 0; height: 3px; background: #fff; margin-top: 20px;
-            box-shadow: 0 0 20px rgba(255,255,255,0.5);
-            animation: lineGrowFast 1.5s ease-out forwards;
-        }
-
-        @keyframes textFillFast {
-            0% { opacity: 0; transform: scale(0.95); }
-            20% { opacity: 1; }
-            100% {
-                opacity: 1; transform: scale(1);
-                color: #fff;
-                -webkit-text-stroke: 0px transparent;
-                text-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 50px rgba(255,255,255,0.3);
-            }
-        }
-
-        @keyframes lineGrowFast {
-            0% { width: 0; opacity: 1; }
-            100% { width: 100%; opacity: 0; }
-        }
-
-        @media (max-width: 768px) {
-            .logo-text { font-size: 2.5rem; letter-spacing: 4px; display: block; margin-bottom: 10px; }
-        }
-
-        /* --- SİTE İÇERİĞİ --- */
+        /* --- ARKA PLAN --- */
         .bg-fixed {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.95)), 
@@ -76,211 +26,154 @@
             background-size: cover; background-position: center; z-index: -1;
         }
         
+        /* --- MENÜ --- */
         nav {
-            position: fixed; top: 0; width: 100%; padding: 30px 8%;
+            position: fixed; top: 0; width: 100%; padding: 20px 8%;
             display: flex; justify-content: space-between; align-items: center;
-            background: rgba(0,0,0,0.1); backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255,255,255,0.05); z-index: 100; transition: 0.3s;
         }
-        nav:hover { background: rgba(0,0,0,0.8); }
-        
-        /* LOGO STİLİ GÜNCELLENDİ: Tıklanabilir Link */
         .logo {
             font-family: 'Orbitron', sans-serif; 
             font-size: 24px; font-weight: 700; color: #fff;
-            letter-spacing: 4px; text-transform: uppercase;
-            text-decoration: none; /* Alt çizgi olmasın */
-            cursor: pointer;
-            transition: 0.3s;
+            letter-spacing: 2px; text-transform: uppercase;
+            text-decoration: none; cursor: pointer;
         }
-        .logo:hover {
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-            transform: scale(1.05);
-        }
-
-        .menu-links { display: flex; gap: 50px; }
+        .menu-links { display: flex; gap: 40px; }
         .menu-links a {
-            color: #aaa; text-decoration: none; font-size: 12px;
-            font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s;
+            color: #ccc; text-decoration: none; font-size: 13px;
+            font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
         }
-        .menu-links a:hover { color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
         
+        /* --- BAŞLIK ALANI (HERO) --- */
         header {
             height: 100vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center; padding: 0 20px;
         }
         h1 {
-            font-family: 'Orbitron', sans-serif; font-size: 5.5rem; font-weight: 700;
-            margin-bottom: 10px; color: #fff; letter-spacing: 5px;
-            text-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            font-family: 'Orbitron', sans-serif; font-size: 4.5rem; font-weight: 700;
+            margin-bottom: 15px; color: #fff; letter-spacing: 3px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.8);
             opacity: 0; transform: translateY(40px); transition: 1s ease;
         }
         p.subtitle {
-            font-size: 1.1rem; color: #ccc; max-width: 600px; margin-bottom: 50px;
-            letter-spacing: 3px; text-transform: uppercase;
+            font-size: 1.1rem; color: #ccc; max-width: 600px; margin-bottom: 40px;
+            letter-spacing: 2px; text-transform: uppercase;
             opacity: 0; transform: translateY(40px); transition: 1s ease 0.3s;
         }
         .btn-main {
             padding: 15px 40px; background: transparent; color: #fff;
-            border: 1px solid rgba(255,255,255,0.3); font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem; letter-spacing: 3px; cursor: pointer; transition: 0.4s;
-            position: relative; overflow: hidden; opacity: 0; transform: translateY(40px);
+            border: 1px solid rgba(255,255,255,0.4); font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem; letter-spacing: 2px; cursor: pointer; transition: 0.4s;
+            opacity: 0; transform: translateY(40px);
             transition: all 0.4s, opacity 1s ease 0.6s, transform 1s ease 0.6s;
         }
-        .btn-main:hover {
-            border-color: #fff; background: rgba(255,255,255,0.1); box-shadow: 0 0 30px rgba(255,255,255,0.1);
-        }
-        section { padding: 120px 10%; position: relative; }
+        .btn-main:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+
+        /* --- KARTLAR --- */
+        section { padding: 100px 8%; }
         .section-title {
-            font-family: 'Orbitron', sans-serif; font-size: 2.5rem; margin-bottom: 80px;
-            text-align: center; color: #fff; letter-spacing: 8px; opacity: 0.9;
+            font-family: 'Orbitron', sans-serif; font-size: 2.2rem; margin-bottom: 60px;
+            text-align: center; color: #fff; letter-spacing: 4px;
         }
         .services-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
         }
+        
+        /* Kart Link Ayarı (Beyaz Renk) */
+        .card-link { text-decoration: none; color: #fff !important; display: block; height: 100%; }
+        .card-link h3 { color: #fff !important; }
+        
         .card {
             background: var(--glass-bg); border: 1px solid var(--glass-border);
-            padding: 50px 30px; transition: 0.4s; text-align: center; backdrop-filter: blur(5px);
+            padding: 40px 25px; transition: 0.4s; text-align: center; backdrop-filter: blur(5px);
+            height: 100%;
         }
-        .card:hover {
-            background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.4); transform: translateY(-5px);
-        }
-        .card h3 { font-family: 'Orbitron', sans-serif; margin-bottom: 20px; font-size: 1.2rem; letter-spacing: 2px; }
-        .card p { color: #999; line-height: 1.8; font-size: 0.9rem; }
-        #contact { background: linear-gradient(to top, #000, transparent); }
+        .card:hover { background: rgba(255,255,255,0.08); transform: translateY(-5px); }
+        .card h3 { font-family: 'Orbitron', sans-serif; margin-bottom: 15px; font-size: 1.3rem; letter-spacing: 1px; }
+        .card p { color: #aaa; line-height: 1.6; font-size: 0.9rem; }
+
+        /* --- İLETİŞİM --- */
         .contact-container {
-            display: flex; flex-wrap: wrap; gap: 80px; justify-content: center; align-items: flex-start;
+            display: flex; flex-wrap: wrap; gap: 50px; justify-content: center;
         }
-        .contact-info h3 {
-            font-family: 'Orbitron', sans-serif; font-size: 1.5rem; margin-bottom: 30px; color: #fff; letter-spacing: 2px;
-        }
+        .contact-info, .form-box { flex: 1; min-width: 300px; }
+        
         .info-item { margin-bottom: 25px; }
-        .info-label { display: block; font-size: 0.8rem; color: #666; margin-bottom: 5px; letter-spacing: 1px; }
-        .info-value { font-size: 1.1rem; color: #fff; font-weight: 400; }
-        .form-box {
-            flex: 1; min-width: 300px; background: var(--glass-bg); padding: 50px;
-            border: 1px solid var(--glass-border); border-radius: 4px;
-        }
-        .input-group { position: relative; margin-bottom: 40px; }
+        .info-label { display: block; font-size: 0.8rem; color: #666; margin-bottom: 5px; }
+        .info-value { font-size: 1.1rem; color: #fff; }
+        
+        .form-box { background: var(--glass-bg); padding: 40px; border: 1px solid var(--glass-border); }
+        .input-group { position: relative; margin-bottom: 30px; }
         .input-field {
             width: 100%; padding: 10px 0; background: transparent; border: none;
             border-bottom: 1px solid #444; color: #fff; font-family: 'Jura', sans-serif;
-            font-size: 1rem; transition: 0.3s; outline: none;
+            font-size: 1rem; outline: none;
         }
-        .input-field::placeholder { color: transparent; }
-        .input-label {
-            position: absolute; top: 10px; left: 0; color: #666; font-size: 0.9rem;
-            pointer-events: none; transition: 0.3s; letter-spacing: 1px;
-        }
-        .input-field:focus, .input-field:not(:placeholder-shown) { border-bottom-color: #fff; }
-        .input-field:focus + .input-label, .input-field:not(:placeholder-shown) + .input-label {
-            top: -20px; font-size: 0.75rem; color: #fff;
-        }
+        .input-field:focus { border-bottom-color: #fff; }
         .btn-send {
-            width: 100%; padding: 20px; background: #fff; color: #000;
+            width: 100%; padding: 18px; background: #fff; color: #000;
             border: none; font-weight: 700; letter-spacing: 2px; cursor: pointer;
-            transition: 0.3s; text-transform: uppercase; display: flex;
-            justify-content: center; align-items: center; gap: 10px;
         }
-        .btn-send:hover { background: #ccc; }
-        footer {
-            text-align: center; padding: 40px; color: #444; font-size: 0.8rem;
-            border-top: 1px solid #111; background: #000;
+
+        /* --- INTRO ANIMASYON --- */
+        #intro-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; z-index: 9999;
+            display: flex; justify-content: center; align-items: center; flex-direction: column;
+            transition: opacity 0.8s ease-out;
         }
+        .logo-text {
+            font-family: 'Orbitron', sans-serif; font-size: 4rem; font-weight: 900; 
+            letter-spacing: 5px; color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8);
+            animation: textFillFast 1.5s forwards; opacity: 0;
+        }
+        .part-one { animation-delay: 0.1s; } .part-two { animation-delay: 0.3s; }
+        @keyframes textFillFast {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); color: #fff; -webkit-text-stroke: 0; }
+        }
+        .loading-line {
+            width: 0; height: 2px; background: #fff; margin-top: 15px;
+            animation: lineGrow 1.5s forwards;
+        }
+        @keyframes lineGrow { to { width: 100%; opacity: 0; } }
         .loaded h1, .loaded .subtitle, .loaded .btn-main { opacity: 1; transform: translateY(0); }
-/* --- Tıklanabilir Kart Link Düzeltmesi --- */
-.card-link {
-    text-decoration: none; /* Link alt çizgisini kaldır */
-    color: #ffffff !important; /* Rengi ZORLA BEYAZ yap (Mor görünmesini engeller) */
-    display: block;
-    height: 100%;
-}
+        
+        footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; }
 
-/* Linkin içindeki başlıkların rengini de garantiye alalım */
-.card-link h3 {
-    color: #ffffff !important;
-}
-
-/* Kartın üzerine gelince (Hover) yazı hafif parlasın */
-.card-link:hover h3 {
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-}
-/* --- MOBİL UYUMLULUK AYARLARI (RESPONSIVE) --- */
+        /* =========================================
+           🔥🔥🔥 MOBİL UYUMLULUK KODLARI 🔥🔥🔥
+           ========================================= */
         @media screen and (max-width: 768px) {
             
-            /* 1. Menü Düzeni */
+            /* Menü Düzeni */
             nav {
+                flex-direction: column; /* Alt alta sırala */
                 padding: 15px;
-                flex-direction: column; /* Yan yana değil alt alta olsun */
-                background: rgba(0, 0, 0, 0.95); /* Arka planı koyulaştır ki okunsun */
+                background: #000; /* Mobilde tam siyah olsun */
             }
-            .logo {
-                margin-bottom: 20px;
-                font-size: 20px;
-            }
-            .menu-links {
-                gap: 20px;
-                width: 100%;
-                justify-content: center;
-                flex-wrap: wrap; /* Sığmazsa alt satıra geçsin */
-            }
-            .menu-links a {
-                font-size: 14px; /* Linkleri biraz büyüt parmakla basılsın */
-                padding: 5px;
-            }
+            .logo { margin-bottom: 15px; font-size: 20px; }
+            .menu-links { gap: 20px; width: 100%; justify-content: center; }
+            .menu-links a { font-size: 14px; padding: 5px; }
 
-            /* 2. Giriş Animasyonu Yazısı */
-            .logo-text {
-                font-size: 2.5rem !important; /* Dev yazıyı küçült */
-                letter-spacing: 2px !important;
-            }
-            .intro-logo-container {
-                width: 90%;
-            }
-
-            /* 3. Ana Başlıklar */
-            header {
-                padding-top: 120px; /* Menü üstüne binmesin */
-                height: auto; /* Tam ekran zorlamasını kaldır */
-                min-height: 100vh;
-            }
-            h1 {
-                font-size: 2.8rem !important; /* Başlığı telefona uyarla */
-                line-height: 1.2;
-            }
-            p.subtitle, p.desc {
-                font-size: 1rem;
-                padding: 0 15px;
-            }
-
-            /* 4. İletişim Kısmı */
-            .contact-container {
-                gap: 40px;
-            }
-            .contact-info, .form-box {
-                min-width: 100%; /* Telefondan tam genişlik kaplasın */
-                padding: 20px;
-            }
-
-            /* 5. Galeri ve Kartlar */
-            .section-title {
-                font-size: 2rem;
-            }
-            section {
-                padding: 60px 5%; /* Kenar boşluklarını daralt */
-            }
-            .gallery-grid {
-                grid-template-columns: 1fr; /* Tek sütun olsun */
-            }
-            .gallery-item {
-                height: 250px; /* Mobilde resimler çok uzun olmasın */
-            }
+            /* Başlıklar */
+            h1 { font-size: 2.2rem !important; line-height: 1.2; padding: 0 10px; }
+            p.subtitle { font-size: 0.9rem; padding: 0 20px; }
             
-            /* 6. Butonlar */
-            .btn-main, .btn-send {
-                width: 100%; /* Butonlar ekranı kaplasın, basması kolay olsun */
-                padding: 15px;
-            }
+            /* Animasyon Yazısı */
+            .logo-text { font-size: 2.5rem !important; letter-spacing: 2px; }
+            
+            /* Kartlar */
+            section { padding: 60px 5%; }
+            .section-title { font-size: 1.8rem; letter-spacing: 2px; }
+            .services-grid { grid-template-columns: 1fr; } /* Tek sütun */
+            
+            /* Form ve İletişim */
+            .contact-container { gap: 30px; }
+            .contact-info, .form-box { min-width: 100%; padding: 25px; }
+            .btn-send, .btn-main { width: 100%; }
         }
     </style>
 </head>
@@ -289,7 +182,7 @@
     <div class="bg-fixed"></div>
 
     <div id="intro-overlay">
-        <div class="intro-logo-container">
+        <div class="intro-logo-container" style="text-align:center;">
             <span class="logo-text part-one">FAR</span>
             <span class="logo-text part-two">HANE</span>
             <div class="loading-line"></div>
@@ -298,7 +191,6 @@
 
     <nav>
         <a href="#home" class="logo">FAR HANE</a>
-        
         <div class="menu-links">
             <a href="#home">Anasayfa</a>
             <a href="#about">Hizmetler</a>
@@ -318,17 +210,15 @@
             <a href="restorasyon.html" class="card-link">
                 <div class="card">
                     <h3>RESTORASYON</h3>
-                    <p>Oksitlenmiş ve yıpranmış far camlarını fabrika standartlarında yenileme işlemi ve detaylı fotoğraflar.</p>
+                    <p>Oksitlenmiş ve yıpranmış far camlarını fabrika standartlarında yenileme işlemi.</p>
                 </div>
             </a>
-
             <a href="biled.html" class="card-link">
                 <div class="card">
                     <h3>Bİ-LED PROJEKTÖR</h3>
-                    <p>Geceyi gündüze çeviren, yeni nesil odaklama teknolojisi montaj örneklerimiz.</p>
+                    <p>Geceyi gündüze çeviren, yeni nesil odaklama teknolojisi montajı.</p>
                 </div>
             </a>
-
             <a href="custom.html" class="card-link">
                 <div class="card">
                     <h3>CUSTOM DESIGN</h3>
@@ -358,12 +248,10 @@
             </div>
             <div class="form-box">
                 <div class="input-group">
-                    <input type="text" id="nameInput" class="input-field" placeholder=" " required>
-                    <label class="input-label">ADINIZ SOYADINIZ</label>
+                    <input type="text" id="nameInput" class="input-field" placeholder="Adınız Soyadınız">
                 </div>
                 <div class="input-group">
-                    <input type="text" id="carInput" class="input-field" placeholder=" " required>
-                    <label class="input-label">ARAÇ MARKA / MODEL</label>
+                    <input type="text" id="carInput" class="input-field" placeholder="Araç Marka / Model">
                 </div>
                 <button class="btn-send" onclick="sendWhatsapp()">WHATSAPP İLE GÖNDER</button>
             </div>
@@ -371,11 +259,11 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 FAR HANE DESIGN. PREMIUM AUTOMOTIVE LIGHTING.</p>
+        <p>&copy; 2026 FAR HANE DESIGN.</p>
     </footer>
 
     <script>
-        // Intro Zamanlaması
+        // Intro
         window.addEventListener('load', () => {
             const overlay = document.getElementById('intro-overlay');
             const body = document.body;
@@ -388,16 +276,14 @@
             }, 1800);
         });
 
-        // WhatsApp Fonksiyonu
+        // WhatsApp
         function sendWhatsapp() {
             var name = document.getElementById('nameInput').value;
             var car = document.getElementById('carInput').value;
-            
-            // GÜNCELLENEN NUMARA (KOD İÇİ)
             var phoneNumber = "905364500917"; 
 
             if(name == "" || car == "") {
-                alert("Lütfen tüm alanları doldurunuz.");
+                alert("Lütfen isim ve araç modelini giriniz.");
                 return;
             }
             var message = "Selam İbrahim Usta, web sitenden ulaşıyorum. \nİsim: " + name + "\nAraç: " + car + "\nBilgi almak istiyorum.";
