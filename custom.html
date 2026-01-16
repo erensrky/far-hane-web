@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Far Hane | Custom Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Jura:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- GENEL AYARLAR (Diğer sayfalarla aynı) --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #050505; color: #fff;
+            font-family: 'Jura', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Arka Plan (Sabit) */
+        .bg-fixed {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            /* Custom Design için biraz daha agresif bir arka plan havası */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.95)), 
+                        url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover; background-position: center; z-index: -1;
+        }
+
+        /* Navigasyon */
+        nav {
+            padding: 30px 8%; display: flex; justify-content: space-between; align-items: center;
+            background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); 
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: sticky; top: 0; z-index: 100;
+        }
+        .logo { 
+            font-family: 'Orbitron', sans-serif; font-size: 24px; font-weight: 700; 
+            color: #fff; letter-spacing: 4px; text-decoration: none; 
+        }
+        .back-btn {
+            color: #fff; text-decoration: none; border: 1px solid rgba(255,255,255,0.3); 
+            padding: 10px 25px; font-family: 'Orbitron', sans-serif; font-size: 0.8rem; 
+            transition: 0.3s; letter-spacing: 2px;
+        }
+        .back-btn:hover { background: #fff; color: #000; border-color: #fff; }
+
+        /* Başlık Alanı */
+        header { text-align: center; padding: 100px 20px 60px; }
+        h1 {
+            font-family: 'Orbitron', sans-serif; font-size: 3.5rem; color: #fff; letter-spacing: 5px;
+            margin-bottom: 20px; text-shadow: 0 0 30px rgba(255,255,255,0.1); text-transform: uppercase;
+        }
+        p.desc { color: #aaa; max-width: 700px; margin: 0 auto; line-height: 1.6; font-size: 1.1rem; }
+
+        /* --- GALERİ IZGARASI --- */
+        .gallery-section { padding: 0 8% 80px; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        .gallery-item {
+            position: relative; overflow: hidden; 
+            border: 1px solid rgba(255,255,255,0.1);
+            background: #111; height: 350px; cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0.8;
+        }
+        .gallery-item:hover img { transform: scale(1.1); opacity: 1; }
+        
+        /* Resim Overlay */
+        .overlay {
+            position: absolute; bottom: 0; left: 0; width: 100%;
+            background: linear-gradient(to top, #000, transparent);
+            padding: 30px; transform: translateY(100%); transition: 0.4s ease;
+        }
+        .gallery-item:hover .overlay { transform: translateY(0); }
+        
+        .overlay h3 { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; margin-bottom: 5px; color: #fff; }
+        .overlay span { font-size: 0.9rem; color: #ccc; }
+
+        /* Footer */
+        footer { 
+            text-align: center; padding: 40px; color: #444; font-size: 0.8rem; 
+            border-top: 1px solid #111; background: #000; 
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-fixed"></div>
+
+    <nav>
+        <a href="index.html" class="logo">FAR HANE</a>
+        <a href="index.html" class="back-btn">← GERİ DÖN</a>
+    </nav>
+
+    <header>
+        <h1>ÖZEL TASARIM & CUSTOM</h1>
+        <p class="desc">
+            Aracınızın karakterini yansıtan benzersiz uygulamalar. 
+            Kayan sinyaller, Devil Eye (Şeytan Gözü), Angel halkalar ve renk değiştiren RGB sistemler ile yolların hakimi siz olun.
+        </p>
+    </header>
+
+    <section class="gallery-section">
+        <div class="gallery-grid">
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1000&auto=format&fit=crop" alt="Custom İşlem 1">
+                <div class="overlay">
+                    <h3>DEVIL EYE</h3>
+                    <span>Kırmızı Mercek İçi Aydınlatma</span>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1618520300588-e21908be5484?q=80&w=1000&auto=format&fit=crop" alt="Custom İşlem 2">
+                <div class="overlay">
+                    <h3>KAYAN SİNYAL</h3>
+                    <span>Audi Stil Dinamik Sinyaller</span>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600706432502-76bcc34e7315?q=80&w=1000&auto=format&fit=crop" alt="Custom İşlem 3">
+                <div class="overlay">
+                    <h3>RGB ANGEL EYES</h3>
+                    <span>Telefondan Kontrol Edilebilir Renkler</span>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1000&auto=format&fit=crop" alt="Custom İşlem 4">
+                <div class="overlay">
+                    <h3>KARARTMA (BLACK HOUSING)</h3>
+                    <span>Far İçi Piano Black Boyama</span>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1597687210367-a494c2522779?q=80&w=1000&auto=format&fit=crop" alt="Custom İşlem 5">
+                <div class="overlay">
+                    <h3>SELAMLAMA MODU</h3>
+                    <span>Açılış Animasyonu</span>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1493238792000-8113da705763?q=80&w=1000&auto=format&fit=crop" alt="Custom İşlem 6">
+                <div class="overlay">
+                    <h3>NEON LED TASARIM</h3>
+                    <span>Özel Büküm Gündüz Farları</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 FAR HANE DESIGN.</p>
+    </footer>
+
+</body>
+</html>

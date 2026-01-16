@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Far Hane | Galeri</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Jura:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- ANA TASARIM AYARLARI (Index ile aynı) --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #050505; color: #fff;
+            font-family: 'Jura', sans-serif;
+        }
+        
+        /* Arka Plan */
+        .bg-fixed {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.95)), 
+                        url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover; background-position: center; z-index: -1;
+        }
+
+        /* Navigasyon (Basit Geri Dön butonu) */
+        nav {
+            padding: 30px 8%; display: flex; justify-content: space-between; align-items: center;
+            background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .logo { font-family: 'Orbitron', sans-serif; font-size: 24px; font-weight: 700; color: #fff; letter-spacing: 4px; text-decoration: none; }
+        .back-btn {
+            color: #fff; text-decoration: none; border: 1px solid #fff; padding: 10px 20px;
+            font-family: 'Orbitron', sans-serif; font-size: 0.8rem; transition: 0.3s;
+        }
+        .back-btn:hover { background: #fff; color: #000; }
+
+        /* Başlık Alanı */
+        header { text-align: center; padding: 80px 20px 40px; }
+        h1 {
+            font-family: 'Orbitron', sans-serif; font-size: 3.5rem; color: #fff; letter-spacing: 5px;
+            margin-bottom: 20px; text-shadow: 0 0 20px rgba(255,255,255,0.2);
+        }
+        p { color: #aaa; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+
+        /* --- GALERİ IZGARASI --- */
+        .gallery-section { padding: 50px 8%; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.02); height: 300px; /* Resim yüksekliği */
+        }
+        .gallery-item img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+        
+        /* Resim üzerine gelince çıkan yazı */
+        .overlay {
+            position: absolute; bottom: 0; left: 0; width: 100%;
+            background: linear-gradient(to top, #000, transparent);
+            padding: 20px; transform: translateY(100%); transition: 0.3s;
+        }
+        .gallery-item:hover .overlay { transform: translateY(0); }
+        .overlay span { font-family: 'Orbitron', sans-serif; font-size: 1rem; color: #fff; }
+
+        /* Footer */
+        footer { text-align: center; padding: 40px; color: #444; font-size: 0.8rem; border-top: 1px solid #222; margin-top: 50px;}
+    </style>
+</head>
+<body>
+
+    <div class="bg-fixed"></div>
+
+    <nav>
+        <a href="index.html" class="logo">FAR HANE</a>
+        <a href="index.html" class="back-btn">← ANA SAYFAYA DÖN</a>
+    </nav>
+
+    <header>
+        <h1 id="page-title">HİZMET DETAYLARI</h1>
+        <p id="page-desc">Atölyemizde yaptığımız profesyonel uygulamalardan örnekler.</p>
+    </header>
+
+    <section class="gallery-section">
+        <div class="gallery-grid">
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1000&auto=format&fit=crop" alt="Uygulama 1">
+                <div class="overlay"><span>BMW F30 Uygulaması</span></div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1000&auto=format&fit=crop" alt="Uygulama 2">
+                <div class="overlay"><span>Mercek Temizliği</span></div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1503376763036-066120622c74?q=80&w=1000&auto=format&fit=crop" alt="Uygulama 3">
+                <div class="overlay"><span>Audi Led Değişimi</span></div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1000&auto=format&fit=crop" alt="Uygulama 4">
+                <div class="overlay"><span>Porsche Detay</span></div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=1000&auto=format&fit=crop" alt="Uygulama 5">
+                <div class="overlay"><span>Far Parlatma Sonrası</span></div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1485291571150-772bcfc10da5?q=80&w=1000&auto=format&fit=crop" alt="Uygulama 6">
+                <div class="overlay"><span>Neon Tasarım</span></div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 FAR HANE DESIGN.</p>
+    </footer>
+
+</body>
+</html>
